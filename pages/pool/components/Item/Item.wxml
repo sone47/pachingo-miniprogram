@@ -1,0 +1,16 @@
+<t-cell>
+  <view slot="title" class="header">
+    <text class="name">{{ data.name }}</text>
+    <view class="priority">
+      <t-icon name="heart-filled" size="18px"></t-icon>
+      <text class="priority-text">24</text>
+    </view>
+  </view>
+  <view slot="description" class="detail">
+    {{ data.description }}
+    <view class="date">
+      <t-icon name="calendar-1-filled" size="14px"/>
+      <text>{{ data.startTime ? data.startTime : '不限' }} - {{ data.endTime ? data.endTime : '不限' }}</text>
+    </view>
+  </view>
+</t-cell>

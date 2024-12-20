@@ -1,1 +1,8 @@
-<layout>111</layout>
+<layout>
+  <item
+    wx:for="{{ listData }}"
+    wx:key="id"
+    wx:for-item="itemData"
+    data="{{ itemData }}"
+  ></item>
+</layout>
