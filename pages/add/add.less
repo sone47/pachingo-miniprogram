@@ -1,0 +1,55 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 100px;
+
+  .heart-icon {
+    display: flex;
+    flex-direction: row;
+    gap: 6px;
+    color: #FFC400;
+  }
+
+  .container-icon {
+    color: #9A9A9A;
+  }
+}
+
+.body {
+  height: calc(100vh - 160px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .input-section {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 32px;
+  
+    .input {
+      border: 2rpx solid var(--td-component-border);
+      border-radius: 12rpx;
+    }
+  }
+  
+  .operate-section {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-left: 12px;
+    color: var(--td-gray-color-8);
+  
+    .icon-wrapper {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 6px;
+    }
+  }
+
+  .button {
+    width: 50%;
+  }
+}

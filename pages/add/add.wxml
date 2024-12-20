@@ -1,0 +1,63 @@
+<!--pages/add/add.wxml-->
+<layout>
+  <view class="header">
+    <view class="heart-icon">
+      <t-icon name="heart" size="48rpx"></t-icon>
+      <text>24</text>
+    </view>
+    <view class="container-icon">
+      <t-icon
+        name="cola"
+        size="48rpx"
+        bind:tap="handleGoToPool"
+      ></t-icon>
+    </view>
+  </view>
+
+  <view class="body">
+    <view>
+      <view class="input-section">
+        <t-input
+          class="input"
+          placeholder="记录想做的事"
+          borderless="{{true}}"
+          model:value="{{ name }}"
+        />
+        <t-textarea
+          t-class="external-class"
+          placeholder="简单描述它"
+          disableDefaultPadding="{{true}}"
+          bordered
+          model:value="{{ description }}"
+        />
+      </view>
+
+      <view class="operate-section">
+        <priority-input-dialog model:value="{{ priority }}">
+          <view class="icon-wrapper">
+            <t-icon name="heart-filled" size="48rpx"/>
+            <text class="icon-text">{{ priority }}</text>
+          </view>
+        </priority-input-dialog>
+        <view class="icon-wrapper">
+          <t-icon name="calendar-1-filled" size="48rpx"/>
+          <date-picker
+            :startTime="{{ startTime }}"
+            :endTime="{{ endTime }}"
+            bind:starttimechange="handleStartTimeChange"
+            bind:endtimechange="handleEndTimeChange"
+          ></date-picker>
+        </view>
+      </view>
+    </view>
+
+    <t-button
+      class="button"
+      theme="primary"
+      size="large"
+      bind:tap="handleSave"
+    >
+      保存
+    </t-button>
+  </view>
+</layout>

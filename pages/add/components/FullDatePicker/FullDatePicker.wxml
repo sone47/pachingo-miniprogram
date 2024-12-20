@@ -1,0 +1,15 @@
+<view class="date-picker">
+  <date-picker-dialog
+    picker-title="请选择开始时间"
+    model:value="{{ startTime }}"
+    startTime="{{ startTimeThreshold }}"
+    endTime="{{ startTimeEndTimeThreshold }}"
+  ></date-picker-dialog>
+  <view class="date-middle-line"></view>
+  <date-picker-dialog
+    picker-title="请选择结束时间"
+    model:value="{{ endTime }}"
+    startTime="{{ endTimeStartTimeThreshold }}"
+    endTime="{{ endTimeThreshold }}"
+  ></date-picker-dialog>
+</view>

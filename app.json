@@ -1,0 +1,37 @@
+{
+  "pages": [
+    "pages/add/add",
+    "pages/gamble/gamble",
+    "pages/calendar/calendar",
+    "pages/pool/pool"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "PaChinGo",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/add/add",
+        "text": "加入事件"
+      },
+      {
+        "pagePath": "pages/gamble/gamble",
+        "text": "抽取事件"
+      },
+      {
+        "pagePath": "pages/calendar/calendar",
+        "text": "日历"
+      }
+    ]
+  },
+  "lazyCodeLoading": "requiredComponents",
+  "usingComponents": {
+    "layout": "./components/Layout/Layout"
+  },
+  "resolveAlias": {
+    "@utils/*": "utils/*"
+  }
+}

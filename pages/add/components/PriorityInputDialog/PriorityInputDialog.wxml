@@ -1,0 +1,22 @@
+<view bind:tap="showDialog">
+  <slot></slot>
+</view>
+
+<t-dialog
+  visible="{{visible}}"
+  title="心愿值"
+  content="选择心愿值，增加事件出现概率"
+  confirm-btn="确定"
+  bind:confirm="closeDialog"
+>
+  <view slot="content">
+    <t-input
+      borderless
+      class="dialog-input"
+      type="number"
+      placeholder="0"
+      bind:change="handlePriorityInputChange"
+      value="{{ value }}"
+    />
+  </view>
+</t-dialog>

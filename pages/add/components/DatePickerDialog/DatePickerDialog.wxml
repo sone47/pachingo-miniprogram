@@ -1,0 +1,21 @@
+<view class="button-content" bind:tap="handleButtonClick">
+  {{ value ? value : '不限' }}
+  <t-icon
+    wx:if="{{ value }}"
+    size="16"
+    name="close"
+    catch:tap="handleDateClear"
+  ></t-icon>
+</view>
+
+<t-date-time-picker
+  auto-close
+  title="{{ pickerTitle }}"
+  visible="{{ dateVisible }}"
+  mode="date"
+  format="YYYY-MM-DD"
+  default-value="{{ value }}"
+  start="{{ startTime }}"
+  end="{{ endTime }}"
+  bind:confirm="handleDateConfirm"
+></t-date-time-picker>
