@@ -2,7 +2,7 @@
   <view slot="title" class="header">
     <view class="left">
       <text class="name">{{ data.name }}</text>
-      <desire-value value="{{ data.priority }}"></desire-value>
+      <desire-value value="{{ data.priority ? data.priority : 0 }}"></desire-value>
     </view>
     <text class="create-time">{{ data.createTime }}添加</text>
   </view>

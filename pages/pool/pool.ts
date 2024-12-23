@@ -20,4 +20,8 @@ Page({
       },
     ],
   },
+
+  handleRemove() {
+    console.log('放弃')
+  },
 })

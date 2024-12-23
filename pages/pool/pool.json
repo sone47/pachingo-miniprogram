@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "desire-item": "/components/DesireItem/DesireItem"
+    "desire-item": "/components/DesireItem/DesireItem",
+    "t-swipe-cell": "tdesign-miniprogram/swipe-cell/swipe-cell"
   }
 }
