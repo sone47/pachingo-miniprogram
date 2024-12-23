@@ -1,8 +1,8 @@
 <layout>
-  <item
+  <desire-item
     wx:for="{{ listData }}"
     wx:key="id"
     wx:for-item="itemData"
     data="{{ itemData }}"
-  ></item>
+  ></desire-item>
 </layout>

@@ -5,6 +5,7 @@
     "t-textarea": "tdesign-miniprogram/textarea/textarea",
     "t-icon": "tdesign-miniprogram/icon/icon",
     "priority-input-dialog": "./components/PriorityInputDialog/PriorityInputDialog",
-    "date-picker": "./components/FullDatePicker/FullDatePicker"
+    "date-picker": "./components/FullDatePicker/FullDatePicker",
+    "desire-value": "/components/DesireValue/DesireValue"
   }
 }

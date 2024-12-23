@@ -3,13 +3,20 @@
 </view>
 
 <t-dialog
+  close-on-overlay-click
   visible="{{visible}}"
   title="心愿值"
   content="选择心愿值，增加事件出现概率"
   confirm-btn="确定"
   bind:confirm="closeDialog"
 >
-  <view slot="content">
+  <view slot="content" class="operation-section">
+    <t-button
+      theme="text"
+      size="large"
+      icon="minus"
+      bind:tap="handlePriorityDec"
+    ></t-button>
     <t-input
       borderless
       class="dialog-input"
@@ -18,5 +25,11 @@
       bind:change="handlePriorityInputChange"
       value="{{ value }}"
     />
+    <t-button
+      theme="text"
+      size="large"
+      icon="plus"
+      bind:tap="handlePriorityInc"
+    ></t-button>
   </view>
 </t-dialog>

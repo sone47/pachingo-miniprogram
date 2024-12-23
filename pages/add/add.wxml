@@ -1,10 +1,11 @@
 <!--pages/add/add.wxml-->
 <layout>
   <view class="header">
-    <view class="heart-icon">
-      <t-icon name="heart" size="48rpx"></t-icon>
-      <text>24</text>
-    </view>
+    <desire-value
+      isFilled="{{ false }}"
+      value="{{ userDesireValue }}"
+      iconSize="{{ 24 }}"
+    ></desire-value>
     <view class="container-icon">
       <t-icon
         name="cola"
@@ -20,24 +21,24 @@
         <t-input
           class="input"
           placeholder="记录想做的事"
-          borderless="{{true}}"
+          borderless
           model:value="{{ name }}"
         />
         <t-textarea
           t-class="external-class"
           placeholder="简单描述它"
-          disableDefaultPadding="{{true}}"
+          disableDefaultPadding
           bordered
           model:value="{{ description }}"
         />
       </view>
 
       <view class="operate-section">
-        <priority-input-dialog model:value="{{ priority }}">
-          <view class="icon-wrapper">
-            <t-icon name="heart-filled" size="48rpx"/>
-            <text class="icon-text">{{ priority }}</text>
-          </view>
+        <priority-input-dialog
+          upper-limit="{{ userDesireValue }}"
+          model:value="{{ priority }}"
+        >
+          <desire-value value="{{ priority }}" iconSize="{{ 24 }}"></desire-value>
         </priority-input-dialog>
         <view class="icon-wrapper">
           <t-icon name="calendar-1-filled" size="48rpx"/>

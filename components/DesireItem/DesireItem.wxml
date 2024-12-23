@@ -1,10 +1,10 @@
 <t-cell>
   <view slot="title" class="header">
-    <text class="name">{{ data.name }}</text>
-    <view class="priority">
-      <t-icon name="heart-filled" size="18px"></t-icon>
-      <text class="priority-text">24</text>
+    <view class="left">
+      <text class="name">{{ data.name }}</text>
+      <desire-value value="{{ data.priority }}"></desire-value>
     </view>
+    <text class="create-time">{{ data.createTime }}添加</text>
   </view>
   <view slot="description" class="detail">
     {{ data.description }}

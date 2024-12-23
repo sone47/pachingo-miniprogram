@@ -1,17 +1,10 @@
-import dayjs from 'dayjs'
-import { computed as computedBehavior } from 'miniprogram-computed'
-
-import { formatDate } from '@utils/date'
-
-// pages/add/add.ts
 Page({
-  /**
-   * Page initial data
-   */
   data: {
+    userDesireValue: 24,
+
     name: '',
     description: '',
-    priority: 0,
+    priority: 1,
     startTime: null,
     endTime: null,
   },

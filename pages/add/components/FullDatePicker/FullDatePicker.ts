@@ -25,7 +25,6 @@ Component({
           ? this.data.startTime
           : this.data.startTimeThreshold
       })
-
       this.triggerEvent('starttimechange', this.data.startTime)
     },
     endTime() {
@@ -35,6 +34,15 @@ Component({
           : this.data.endTimeThreshold
       })
       this.triggerEvent('endtimechange', this.data.endTime)
-    }
+    },
   },
+
+  lifetimes: {
+    created() {
+      this.setData({
+        startTime: null,
+        endTime: null,
+      })
+    }
+  }
 })
