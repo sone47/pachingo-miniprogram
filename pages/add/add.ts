@@ -26,5 +26,6 @@ Page({
 
   onShow() {
     this.getTabBar().setData({ selected: 'add' })
+    wx.setNavigationBarTitle({ title: '添加心愿' })
   },
 })

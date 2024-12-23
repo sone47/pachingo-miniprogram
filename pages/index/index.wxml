@@ -1,5 +1,0 @@
-<!--pages/index/index.wxml-->
-<view class="">
-  <t-button theme="light" block>老虎机</t-button>
-  <t-button theme="light" block>今日二十四分之一</t-button>
-</view>
