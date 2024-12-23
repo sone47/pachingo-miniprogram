@@ -12,6 +12,7 @@
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
+    "custom": true,
     "list": [
       {
         "pagePath": "pages/add/add",

@@ -1,0 +1,13 @@
+<t-tab-bar
+  split="{{ false }}"
+  value="{{ selected }}"
+  bind:change="handleChange"
+>
+  <t-tab-bar-item
+    wx:for="{{ list }}"
+    wx:key="value"
+    value="{{ item.value }}"
+    icon="{{ item.icon }}"
+    ariaLabel="{{ item.ariaLabel }}"
+  ></t-tab-bar-item>
+</t-tab-bar>

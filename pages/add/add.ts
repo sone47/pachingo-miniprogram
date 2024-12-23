@@ -23,4 +23,8 @@ Page({
   handleSave() {
     console.log(this.data)
   },
+
+  onShow() {
+    this.getTabBar().setData({ selected: 'add' })
+  },
 })
