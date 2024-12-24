@@ -1,14 +1,18 @@
 <layout>
-  <t-swipe-cell
-    wx:for="{{ listData }}"
-    wx:key="id"
-    wx:for-item="itemData"
-  >
-    <desire-item data="{{ itemData }}"></desire-item>
-    <view
-      slot="right"
-      class="swipe-button"
-      bind:tap="handleRemove"
-    >放弃</view>
-  </t-swipe-cell>
+  <view class="pool">
+    <card
+      wx:for="{{ listData }}"
+      wx:key="id"
+      wx:for-item="itemData"
+    >
+      <t-swipe-cell>
+        <desire-item data="{{ itemData }}"></desire-item>
+        <view
+          slot="right"
+          class="swipe-button"
+          bind:tap="handleRemove"
+        >放弃</view>
+      </t-swipe-cell>
+    </card>
+  </view>
 </layout>

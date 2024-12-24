@@ -6,6 +6,7 @@
     "t-icon": "tdesign-miniprogram/icon/icon",
     "priority-input-dialog": "./components/PriorityInputDialog/PriorityInputDialog",
     "date-picker": "./components/FullDatePicker/FullDatePicker",
-    "desire-value": "/components/DesireValue/DesireValue"
+    "value-icon": "/components/ValueIcon/index",
+    "pool-entry": "/components/PoolEntry/index"
   }
 }

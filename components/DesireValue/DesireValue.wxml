@@ -1,4 +1,0 @@
-<view class="priority">
-  <t-icon name="{{ isFilled ? 'heart-filled' : 'heart' }}" size="{{ iconSize }}"></t-icon>
-  <text class="priority-text">{{ value }}</text>
-</view>

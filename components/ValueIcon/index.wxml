@@ -1,0 +1,7 @@
+<view class="priority">
+  <t-icon
+    name="{{iconName}}{{isFilled ? '-filled' : ''}}"
+    size="{{ iconSize }}"
+  ></t-icon>
+  <text class="priority-text">{{ value }}</text>
+</view>

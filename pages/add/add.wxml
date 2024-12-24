@@ -1,18 +1,12 @@
 <!--pages/add/add.wxml-->
 <layout>
   <view class="header">
-    <desire-value
+    <value-icon
       isFilled="{{ false }}"
       value="{{ userDesireValue }}"
       iconSize="{{ 24 }}"
-    ></desire-value>
-    <view class="container-icon">
-      <t-icon
-        name="cola"
-        size="48rpx"
-        bind:tap="handleGoToPool"
-      ></t-icon>
-    </view>
+    ></value-icon>
+    <pool-entry></pool-entry>
   </view>
 
   <view class="body">
@@ -38,7 +32,7 @@
           upper-limit="{{ userDesireValue }}"
           model:value="{{ priority }}"
         >
-          <desire-value value="{{ priority }}" iconSize="{{ 24 }}"></desire-value>
+          <value-icon value="{{ priority }}" iconSize="{{ 24 }}"></value-icon>
         </priority-input-dialog>
         <view class="icon-wrapper">
           <t-icon name="calendar-1-filled" size="48rpx"/>

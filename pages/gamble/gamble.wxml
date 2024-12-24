@@ -1,2 +1,29 @@
-<!--pages/gamble/gamble.wxml-->
-<text>pages/gamble/gamble.wxml</text>
+<layout>
+  <view class="container">
+    <view class="header">
+      <value-icon
+        iconName="money"
+        isFilled="{{ false }}"
+        value="{{ gamblingChipCount }}"
+        iconSize="{{ 24 }}"
+      ></value-icon>
+      <pool-entry></pool-entry>
+    </view>
+
+    <view class="body">
+      <view class="content">
+        <card class="empty-card">
+          <t-icon class="help-icon" name="help" size="24"></t-icon>
+        </card>
+        <card class="empty-card">
+          <t-icon class="help-icon" name="help" size="24"></t-icon>
+        </card>
+        <card class="empty-card">
+          <t-icon class="help-icon" name="help" size="24"></t-icon>
+        </card>
+      </view>
+
+      <t-button size="large" theme="primary" bind:tap="handlePlayButtonTap">抽取心愿</t-button>
+    </view>
+  </view>
+</layout>

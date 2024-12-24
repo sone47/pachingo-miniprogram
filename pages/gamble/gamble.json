@@ -1,3 +1,9 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "value-icon": "/components/ValueIcon/index",
+    "pool-entry": "/components/PoolEntry/index",
+    "card": "/components/Card/index",
+    "t-icon": "tdesign-miniprogram/icon/icon",
+    "t-button": "tdesign-miniprogram/button/button"
+  }
 }

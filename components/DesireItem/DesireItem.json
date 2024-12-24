@@ -3,6 +3,6 @@
   "usingComponents": {
     "t-cell": "tdesign-miniprogram/cell/cell",
     "t-icon": "tdesign-miniprogram/icon/icon",
-    "desire-value": "/components/DesireValue/DesireValue"
+    "value-icon": "/components/ValueIcon/index"
   }
 }

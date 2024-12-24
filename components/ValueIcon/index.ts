@@ -1,6 +1,9 @@
-// components/DesireValue/DesireValue.ts
 Component({
   properties: {
+    iconName: {
+      type: String,
+      value: 'heart',
+    },
     value: {
       type: Number,
     },
