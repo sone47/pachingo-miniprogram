@@ -1,0 +1,22 @@
+<view class="footer-container">
+  <t-button
+    wx:if="{{ hasPlayed }}"
+    class="button"
+    size="large"
+    variant="outline"
+    icon="print"
+    bind:tap="handlePrintButtonTap"
+  >打印清单</t-button>
+  <t-button
+    class="button"
+    size="large"
+    theme="primary"
+    icon="{{ hasPlayed && hasChip ? 'refresh' : null }}"
+    disabled="{{ !hasChip }}"
+    bind:tap="handlePlayButtonTap"
+  >{{
+    hasPlayed
+      ? ( hasChip ? '重新抽取' : '暂无筹码')
+      : '抽取心愿' 
+  }}</t-button>
+</view>

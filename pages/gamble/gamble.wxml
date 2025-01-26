@@ -11,19 +11,38 @@
     </view>
 
     <view class="body">
-      <view class="content">
-        <card class="empty-card">
-          <t-icon class="help-icon" name="help" size="24"></t-icon>
-        </card>
-        <card class="empty-card">
-          <t-icon class="help-icon" name="help" size="24"></t-icon>
-        </card>
-        <card class="empty-card">
+      <view wx:if="{{ lottoryResultList.length === 0 }}" class="content">
+        <card wx:for="{{ 3 }}" wx:key="this" class="empty-card">
           <t-icon class="help-icon" name="help" size="24"></t-icon>
         </card>
       </view>
+      <view wx:else class="content">
+        <swiper
+          class="swiper"
+          indicator-dots="{{ true }}"
+          indicator-color="#E8E8E8"
+          indicator-active-color="#FBD65B"
+        >
+          <swiper-item wx:for="{{ lottoryResultList }}" wx:key="this">
+            <view class="content">
+              <card
+                wx:for="{{ item }}"
+                wx:key="id"
+                wx:for-item="desireItem"
+              >
+                <desire-item data="{{ desireItem }}"></desire-item>
+              </card>
+            </view>
+          </swiper-item>
+        </swiper>
+      </view>
 
-      <t-button size="large" theme="primary" bind:tap="handlePlayButtonTap">抽取心愿</t-button>
+      <footer-button
+        gamblingChipCount="{{ gamblingChipCount }}"
+        lottoryResultList="{{ lottoryResultList }}"
+        bind:play="handlePlay"
+        bind:print="handlePrint"
+      ></footer-button>
     </view>
   </view>
 </layout>
