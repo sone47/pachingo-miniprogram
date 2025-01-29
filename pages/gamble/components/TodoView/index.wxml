@@ -1,0 +1,31 @@
+<view class="container">
+  <view class="content">
+    <card
+      wx:for="{{ data }}"
+      wx:key="id"
+      wx:for-item="desireItem"
+    >
+      <desire-item
+        completable
+        data="{{ desireItem }}"
+        bind:complete="handleComplete"
+        bind:rollback="handleRollback"
+      ></desire-item>
+    </card>
+  </view>
+
+  <view class="desire-value-group">
+    <view wx:for="{{ data }}" wx:key="id" wx:for-item="desireItem">
+      <value-icon
+        isValueInsideIcon
+        isFilled="{{ desireItem.status === EventStatusEnum.Done }}"
+        value="{{ desireItem.status === EventStatusEnum.Done ? '+' + desireItem.priority : '' }}"
+        iconSize="{{ 36 }}"
+      ></value-icon>
+    </view>
+  </view>
+
+  <view class="count-down-text">
+    距离下次抽取还有<t-count-down size="small" time="{{ countDownTime }}" />
+  </view>
+</view>

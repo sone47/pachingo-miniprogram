@@ -3,8 +3,16 @@
   gap: 4px;
   align-items: center;
   color: #FFC400;
+  position: relative;
 
   .priority-text {
     font-size: 14px;
+
+    &.inside {
+      position: absolute;
+      color: #fff;
+      left: 50%;
+      transform: translateX(-50%);
+    }
   }
 }

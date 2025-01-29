@@ -5,7 +5,7 @@ Component({
       value: 'heart',
     },
     value: {
-      type: Number,
+      optionalTypes: [Number, String],
     },
     isFilled: {
       type: Boolean,
@@ -14,6 +14,10 @@ Component({
     iconSize: {
       type: Number,
       value: 18,
+    },
+    isValueInsideIcon: {
+      type: Boolean,
+      value: false,
     },
   },
 })

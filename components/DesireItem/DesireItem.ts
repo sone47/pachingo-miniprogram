@@ -5,6 +5,13 @@ Component({
     data: {
       type: Object,
       value: () => ({}),
+      observer(newValue) {
+        if (this.data.completable) {
+          this.setData({
+            isComplete: newValue.status === EventStatusEnum.Done
+          })
+        }
+      },
     },
     completable: {
       type: Boolean,
@@ -13,17 +20,7 @@ Component({
   },
 
   data: {
-    isComplete: false,
-  },
-
-  lifetimes: {
-    attached() {
-      if (this.data.completable) {
-        this.setData({
-          isComplete: this.data.data.status === EventStatusEnum.Done
-        })
-      }
-    },
+    EventStatusEnum,
   },
 
   methods: {

@@ -11,7 +11,12 @@
     </view>
 
     <view class="body">
-      <todo-view wx:if="{{ isTodo }}" data="{{ todoList }}"></todo-view>
+      <todo-view
+        wx:if="{{ isTodo }}"
+        data="{{ todoList }}"
+        bind:complete="handleDesireComplete"
+        bind:rollback="handleDesireRollback"
+      ></todo-view>
       <block wx:else>
         <view wx:if="{{ lottoryResultList.length === 0 }}" class="content">
           <card wx:for="{{ 3 }}" wx:key="this" class="empty-card">

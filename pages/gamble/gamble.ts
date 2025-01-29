@@ -1,6 +1,6 @@
 import { uniqBy } from 'lodash'
 
-import { DEFAULT_GAMBLIMH_CHIP_COUNT } from '../../constant/index'
+import { DEFAULT_GAMBLIMH_CHIP_COUNT, EventStatusEnum } from '@constant/index'
 
 Page({
   data: {
@@ -58,7 +58,7 @@ Page({
         eventId: 11,
         isSelected: false,
         event: {
-          id: 1,
+          id: 2,
           name: '打豆豆',
           description: '店子在福田~再不吃可能就过季了没得吃了！！警惕警惕警惕~~~~~',
           priority: 4,
@@ -73,7 +73,7 @@ Page({
         eventId: 12,
         isSelected: false,
         event: {
-          id: 1,
+          id: 3,
           name: '睡觉',
           description: '店子在福田~再不吃可能就过季了没得吃了！！警惕警惕警惕~~~~~',
           priority: 4,
@@ -88,12 +88,13 @@ Page({
         eventId: 10,
         isSelected: true,
         event: {
-          id: 1,
+          id: 4,
           name: '开飞机',
           description: '店子在福田~再不吃可能就过季了没得吃了！！警惕警惕警惕~~~~~',
           priority: 3,
           startTime: '2024-06-07',
           endTime: '2024-07-08',
+          status: 1,
           createTime: '2024-12-12',
         },
       },
@@ -103,12 +104,13 @@ Page({
         eventId: 10,
         isSelected: true,
         event: {
-          id: 1,
+          id: 5,
           name: '看电影',
           description: '店子在福田~再不吃可能就过季了没得吃了！！警惕警惕警惕~~~~~',
           priority: 4,
           startTime: '2024-06-07',
           endTime: '2024-07-08',
+          status: 1,
           createTime: '2024-12-12',
         },
       },
@@ -118,12 +120,13 @@ Page({
         eventId: 10,
         isSelected: true,
         event: {
-          id: 1,
+          id: 6,
           name: '做PaChinGo',
           description: '店子在福田~再不吃可能就过季了没得吃了！！警惕警惕警惕~~~~~',
           priority: 5,
           startTime: '2024-06-07',
           endTime: '2024-07-08',
+          status: 2,
           createTime: '2024-12-12',
         },
       },
@@ -174,5 +177,28 @@ Page({
       ],
       chipCount: this.data.gamblingChipCount - 1,
     }
+  },
+
+  handleDesireComplete(event) {
+    const targetId = event.detail.item.id
+    this.setData({
+      todoList: this.data.todoList.map((item) => ({
+        ...item,
+        status: item.id === targetId ? EventStatusEnum.Done : item.status,
+      }))
+    })
+
+    // TODO update data in database
+  },
+  handleDesireRollback(event) {
+    const targetId = event.detail.item.id
+    this.setData({
+      todoList: this.data.todoList.map((item) => ({
+        ...item,
+        status: item.id === targetId ? EventStatusEnum.Todo : item.status,
+      }))
+    })
+
+    // TODO update data in database
   },
 })

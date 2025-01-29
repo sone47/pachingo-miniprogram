@@ -3,5 +3,7 @@
     name="{{iconName}}{{isFilled ? '-filled' : ''}}"
     size="{{ iconSize }}"
   ></t-icon>
-  <text class="priority-text">{{ value }}</text>
+  <text
+    class="priority-text{{ isValueInsideIcon ? ' inside' : '' }}"
+  >{{ value }}</text>
 </view>
