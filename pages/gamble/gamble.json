@@ -5,6 +5,7 @@
     "card": "/components/Card/index",
     "t-icon": "tdesign-miniprogram/icon/icon",
     "desire-item": "/components/DesireItem/DesireItem",
-    "footer-button": "./components/FooterButton/index"
+    "footer-button": "./components/FooterButton/index",
+    "todo-view": "./components/TodoView/index"
   }
 }

@@ -16,12 +16,4 @@ Component({
       value: 18,
     },
   },
-
-  data: {
-
-  },
-
-  methods: {
-
-  }
 })

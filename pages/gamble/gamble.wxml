@@ -11,38 +11,41 @@
     </view>
 
     <view class="body">
-      <view wx:if="{{ lottoryResultList.length === 0 }}" class="content">
-        <card wx:for="{{ 3 }}" wx:key="this" class="empty-card">
-          <t-icon class="help-icon" name="help" size="24"></t-icon>
-        </card>
-      </view>
-      <view wx:else class="content">
-        <swiper
-          class="swiper"
-          indicator-dots="{{ true }}"
-          indicator-color="#E8E8E8"
-          indicator-active-color="#FBD65B"
-        >
-          <swiper-item wx:for="{{ lottoryResultList }}" wx:key="this">
-            <view class="content">
-              <card
-                wx:for="{{ item }}"
-                wx:key="id"
-                wx:for-item="desireItem"
-              >
-                <desire-item data="{{ desireItem }}"></desire-item>
-              </card>
-            </view>
-          </swiper-item>
-        </swiper>
-      </view>
+      <todo-view wx:if="{{ isTodo }}" data="{{ todoList }}"></todo-view>
+      <block wx:else>
+        <view wx:if="{{ lottoryResultList.length === 0 }}" class="content">
+          <card wx:for="{{ 3 }}" wx:key="this" class="empty-card">
+            <t-icon class="help-icon" name="help" size="24"></t-icon>
+          </card>
+        </view>
+        <view wx:else class="content">
+          <swiper
+            class="swiper"
+            indicator-dots="{{ true }}"
+            indicator-color="#E8E8E8"
+            indicator-active-color="#FBD65B"
+          >
+            <swiper-item wx:for="{{ lottoryResultList }}" wx:key="this">
+              <view class="content">
+                <card
+                  wx:for="{{ item }}"
+                  wx:key="id"
+                  wx:for-item="desireItem"
+                >
+                  <desire-item data="{{ desireItem }}"></desire-item>
+                </card>
+              </view>
+            </swiper-item>
+          </swiper>
+        </view>
 
-      <footer-button
-        gamblingChipCount="{{ gamblingChipCount }}"
-        lottoryResultList="{{ lottoryResultList }}"
-        bind:play="handlePlay"
-        bind:print="handlePrint"
-      ></footer-button>
+        <footer-button
+          gamblingChipCount="{{ gamblingChipCount }}"
+          lottoryResultList="{{ lottoryResultList }}"
+          bind:play="handlePlay"
+          bind:print="handlePrint"
+        ></footer-button>
+      </block>
     </view>
   </view>
 </layout>

@@ -1,16 +1,27 @@
-<t-cell bordered="{{ false }}">
-  <view slot="title" class="header">
-    <view class="left">
-      <text class="name">{{ data.name }}</text>
-      <value-icon value="{{ data.priority ? data.priority : 0 }}"></value-icon>
+<view class="container">
+  <t-checkbox
+    wx:if="{{ completable }}"
+    checked="{{ isComplete }}"
+    icon="rectangle"
+    style="padding-right: 0;"
+    bind:change="handleCompleteCheckedChange"
+  />
+  <t-cell bordered="{{ false }}" class="{{ checkable ? 'no-padding-left-cell' : '' }}">
+    <view slot="title" class="header">
+      <view class="left">
+        <text
+          class="name{{ completable && isComplete ? ' completed' : '' }}"
+        >{{ data.name }}</text>
+        <value-icon value="{{ data.priority ? data.priority : 0 }}"></value-icon>
+      </view>
+      <text class="create-time">{{ data.createTime }}添加</text>
     </view>
-    <text class="create-time">{{ data.createTime }}添加</text>
-  </view>
-  <view slot="description" class="detail">
-    {{ data.description }}
-    <view class="date">
-      <t-icon name="calendar-1-filled" size="14px"/>
-      <text>{{ data.startTime ? data.startTime : '不限' }} - {{ data.endTime ? data.endTime : '不限' }}</text>
+    <view slot="description" class="detail">
+      {{ data.description }}
+      <view class="date">
+        <t-icon name="calendar-1-filled" size="14px"/>
+        <text>{{ data.startTime ? data.startTime : '不限' }} - {{ data.endTime ? data.endTime : '不限' }}</text>
+      </view>
     </view>
-  </view>
-</t-cell>
+  </t-cell>
+</view>

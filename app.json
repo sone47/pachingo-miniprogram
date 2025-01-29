@@ -33,6 +33,8 @@
     "layout": "./components/Layout/Layout"
   },
   "resolveAlias": {
-    "@utils/*": "utils/*"
+    "@utils/*": "utils/*",
+    "@components/*": "components/*",
+    "@constant/*": "constant/*"
   }
 }
