@@ -1,4 +1,4 @@
-import { uniqBy } from 'lodash'
+import { uniqBy, groupBy, values, map } from 'lodash'
 
 import { DEFAULT_GAMBLIMH_CHIP_COUNT, EventStatusEnum } from '@constant/index'
 
@@ -26,6 +26,7 @@ Page({
       isTodo: lotteryResult.some((item) => item.isSelected),
       gamblingChipCount: DEFAULT_GAMBLIMH_CHIP_COUNT - uniqBy(lotteryResult, 'lotteryId').length,
       todoList: lotteryResult.filter((item) => item.isSelected).map((item) => item.event),
+      lottoryResultList: values(groupBy(lotteryResult, 'lotteryId')).map(item => map(item, 'event')),
     })
   },
 
@@ -86,7 +87,7 @@ Page({
         id: 4,
         lotteryId: '2025012702',
         eventId: 10,
-        isSelected: true,
+        isSelected: false,
         event: {
           id: 4,
           name: '开飞机',
@@ -102,7 +103,7 @@ Page({
         id: 5,
         lotteryId: '2025012702',
         eventId: 10,
-        isSelected: true,
+        isSelected: false,
         event: {
           id: 5,
           name: '看电影',
@@ -118,7 +119,7 @@ Page({
         id: 6,
         lotteryId: '2025012702',
         eventId: 10,
-        isSelected: true,
+        isSelected: false,
         event: {
           id: 6,
           name: '做PaChinGo',
