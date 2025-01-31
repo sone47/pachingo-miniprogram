@@ -1,0 +1,9 @@
+<view class="container">
+  <card
+    wx:for="{{ data }}"
+    wx:key="id"
+    wx:for-item="desireItem"
+  >
+    <desire-item data="{{ desireItem }}"></desire-item>
+  </card>
+</view>

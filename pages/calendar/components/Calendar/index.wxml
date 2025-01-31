@@ -1,0 +1,10 @@
+<t-calendar
+  title="{{ dateFormatString }}"
+  use-popup="{{ false }}"
+  type="single"
+  value="{{ date }}"
+  switch-mode="year-month"
+  min-date="{{ minDate }}"
+  max-date="{{ maxDate }}"
+  bind:select="handleSelect"
+></t-calendar>

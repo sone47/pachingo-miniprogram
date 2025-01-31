@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "card": "/components/Card/index",
+    "desire-item": "/components/DesireItem/DesireItem"
+  }
+}

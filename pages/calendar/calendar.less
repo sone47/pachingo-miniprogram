@@ -1,1 +1,29 @@
-/* pages/calendar/calendar.wxss */
+.page-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+  padding: 32px 8px 0;
+
+  .bg-round {
+    position: absolute;
+    width: 520px;
+    height: 520px;
+    left: 50%;
+    top: 0;
+    border-radius: 9999px;
+    transform: translate(-50%, -60%);
+    background-color: #FFC400;
+  }
+
+  .calendar-card {
+    box-shadow: 0px 2px 6px 0px rgba(187, 187, 187, 0.33);
+    border-radius: 10px;
+    background-color: black;
+    overflow: hidden;
+
+    .calendar-container {
+      margin-top: -84rpx;
+    }
+  }
+}

@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "calendar": "./components/Calendar/index",
+    "history-list": "./components/HistoryList/index"
+  }
 }

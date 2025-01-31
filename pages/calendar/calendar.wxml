@@ -1,2 +1,15 @@
-<!--pages/calendar/calendar.wxml-->
-<text>pages/calendar/calendar.wxml</text>
+<view class="page-container">
+  <view class="bg-round"></view>
+
+  <view class="calendar-card">
+    <view class="calendar-container">
+      <calendar
+        class="calendar"
+        date="{{ date }}"
+        bind:select="handleCalendarSelect"
+      ></calendar>
+    </view>
+  </view>
+
+  <history-list data="{{ historyData }}"></history-list>
+</view>
