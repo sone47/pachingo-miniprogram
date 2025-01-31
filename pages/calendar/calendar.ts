@@ -1,20 +1,14 @@
 Page({
-
-  /**
-   * Page initial data
-   */
   data: {
     date: Date.now(),
     historyData: [],
   },
 
-  onLoad() {
-    this.setDate(Date.now())
-  },
-
   onShow() {
     this.getTabBar().setData({ selected: 'calendar' })
     wx.setNavigationBarTitle({ title: '历史清单' })
+
+    this.setDate(Date.now())
   },
 
   handleCalendarSelect(event) {
