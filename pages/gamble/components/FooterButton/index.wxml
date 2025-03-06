@@ -6,7 +6,8 @@
     variant="outline"
     icon="print"
     bind:tap="handlePrintButtonTap"
-  >打印清单</t-button>
+    >打印清单</t-button
+  >
   <t-button
     class="button"
     size="large"
@@ -14,9 +15,7 @@
     icon="{{ hasPlayed && hasChip ? 'refresh' : null }}"
     disabled="{{ !hasChip }}"
     bind:tap="handlePlayButtonTap"
-  >{{
-    hasPlayed
-      ? ( hasChip ? '重新抽取' : '暂无筹码')
-      : '抽取心愿' 
-  }}</t-button>
+  >
+    {{ hasPlayed ? ( hasChip ? '重新抽取' : '暂无筹码') : '抽取心愿' }}
+  </t-button>
 </view>

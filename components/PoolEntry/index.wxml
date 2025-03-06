@@ -1,7 +1,3 @@
 <view class="container-icon">
-  <t-icon
-    name="cola"
-    size="{{ 24 }}"
-    bind:tap="handleGoToPool"
-  ></t-icon>
+  <t-icon name="cola" size="{{ 24 }}" bind:tap="handleGoToPool"></t-icon>
 </view>

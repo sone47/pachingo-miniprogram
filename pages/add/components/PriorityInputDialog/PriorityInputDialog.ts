@@ -54,8 +54,8 @@ Component({
 
     setPriority(value: number) {
       this.setData({
-        value: Math.min(Math.max(value, this.properties.lowerLimit), this.properties.upperLimit)
+        value: Math.min(Math.max(value, this.properties.lowerLimit), this.properties.upperLimit),
       })
-    }
-  }
+    },
+  },
 })

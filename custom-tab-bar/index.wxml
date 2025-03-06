@@ -1,8 +1,4 @@
-<t-tab-bar
-  split="{{ false }}"
-  value="{{ selected }}"
-  bind:change="handleChange"
->
+<t-tab-bar split="{{ false }}" value="{{ selected }}" bind:change="handleChange">
   <t-tab-bar-item
     wx:for="{{ list }}"
     wx:key="value"

@@ -1,23 +1,14 @@
 <!--pages/add/add.wxml-->
 <layout>
   <view class="header">
-    <value-icon
-      isFilled="{{ false }}"
-      value="{{ userDesireValue }}"
-      iconSize="{{ 24 }}"
-    ></value-icon>
+    <value-icon isFilled="{{ false }}" value="{{ userDesireValue }}" iconSize="{{ 24 }}"></value-icon>
     <pool-entry></pool-entry>
   </view>
 
   <view class="body">
     <view>
       <view class="input-section">
-        <t-input
-          class="input"
-          placeholder="记录想做的事"
-          borderless
-          model:value="{{ name }}"
-        />
+        <t-input class="input" placeholder="记录想做的事" borderless model:value="{{ name }}" />
         <t-textarea
           t-class="external-class"
           placeholder="简单描述它"
@@ -28,14 +19,11 @@
       </view>
 
       <view class="operate-section">
-        <priority-input-dialog
-          upper-limit="{{ userDesireValue }}"
-          model:value="{{ priority }}"
-        >
+        <priority-input-dialog upper-limit="{{ userDesireValue }}" model:value="{{ priority }}">
           <value-icon value="{{ priority }}" iconSize="{{ 24 }}"></value-icon>
         </priority-input-dialog>
         <view class="icon-wrapper">
-          <t-icon name="calendar-1-filled" size="48rpx"/>
+          <t-icon name="calendar-1-filled" size="48rpx" />
           <date-picker
             :startTime="{{ startTime }}"
             :endTime="{{ endTime }}"
@@ -46,13 +34,6 @@
       </view>
     </view>
 
-    <t-button
-      class="button"
-      theme="primary"
-      size="large"
-      bind:tap="handleSave"
-    >
-      保存
-    </t-button>
+    <t-button class="button" theme="primary" size="large" bind:tap="handleSave"> 保存 </t-button>
   </view>
 </layout>

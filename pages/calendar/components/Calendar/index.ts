@@ -30,5 +30,5 @@ Component({
       const dateTimestamp = event.detail.value
       this.triggerEvent('select', { value: dateTimestamp })
     },
-  }
+  },
 })

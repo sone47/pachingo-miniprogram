@@ -8,7 +8,7 @@ Component({
       observer(newValue) {
         if (this.data.completable) {
           this.setData({
-            isComplete: newValue.status === EventStatusEnum.Done
+            isComplete: newValue.status === EventStatusEnum.Done,
           })
         }
       },
@@ -36,5 +36,5 @@ Component({
         })
       }
     },
-  }
+  },
 })

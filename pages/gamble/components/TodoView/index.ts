@@ -26,5 +26,5 @@ Component({
     handleRollback(event) {
       this.triggerEvent('rollback', event.detail)
     },
-  }
+  },
 })

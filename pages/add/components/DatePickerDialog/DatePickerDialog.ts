@@ -7,7 +7,7 @@ Component({
     },
     pickerTitle: {
       type: String,
-      value: '请选择开始时间'
+      value: '请选择开始时间',
     },
     startTime: {
       type: String,
@@ -34,6 +34,6 @@ Component({
 
     handleDateClear() {
       this.setData({ value: null })
-    }
-  }
+    },
+  },
 })

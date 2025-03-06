@@ -5,8 +5,8 @@ Page({
     name: '',
     description: '',
     priority: 1,
-    startTime: null,
-    endTime: null,
+    startTime: null as string | null,
+    endTime: null as string | null,
   },
 
   handleGoToPool() {

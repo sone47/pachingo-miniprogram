@@ -23,7 +23,7 @@ Component({
       this.setData({
         endTimeStartTimeThreshold: dayjs(this.data.startTimeThreshold).isBefore(this.data.startTime)
           ? this.data.startTime
-          : this.data.startTimeThreshold
+          : this.data.startTimeThreshold,
       })
       this.triggerEvent('starttimechange', this.data.startTime)
     },
@@ -31,7 +31,7 @@ Component({
       this.setData({
         startTimeEndTimeThreshold: dayjs(this.data.endTimeThreshold).isAfter(this.data.endTime)
           ? this.data.endTime
-          : this.data.endTimeThreshold
+          : this.data.endTimeThreshold,
       })
       this.triggerEvent('endtimechange', this.data.endTime)
     },
@@ -43,6 +43,6 @@ Component({
         startTime: null,
         endTime: null,
       })
-    }
-  }
+    },
+  },
 })

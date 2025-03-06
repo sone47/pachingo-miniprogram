@@ -1,0 +1,15 @@
+# 忽略构建输出目录
+dist/
+miniprogram_dist/
+
+# 忽略依赖目录
+node_modules/
+miniprogram_npm/
+
+# 忽略配置文件
+project.config.json
+project.private.config.json
+
+# 忽略其他文件
+*.md
+.DS_Store

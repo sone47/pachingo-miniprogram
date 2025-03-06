@@ -3,6 +3,6 @@ Component({
     data: {
       type: Array,
       value: [],
-    }
+    },
   },
 })

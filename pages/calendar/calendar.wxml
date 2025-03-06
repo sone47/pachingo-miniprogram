@@ -3,11 +3,7 @@
 
   <view class="calendar-card">
     <view class="calendar-container">
-      <calendar
-        class="calendar"
-        date="{{ date }}"
-        bind:select="handleCalendarSelect"
-      ></calendar>
+      <calendar class="calendar" date="{{ date }}" bind:select="handleCalendarSelect"></calendar>
     </view>
   </view>
 

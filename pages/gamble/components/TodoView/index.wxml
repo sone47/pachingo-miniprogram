@@ -1,10 +1,6 @@
 <view class="container">
   <view class="content">
-    <card
-      wx:for="{{ data }}"
-      wx:key="id"
-      wx:for-item="desireItem"
-    >
+    <card wx:for="{{ data }}" wx:key="id" wx:for-item="desireItem">
       <desire-item
         completable
         data="{{ desireItem }}"
@@ -25,7 +21,5 @@
     </view>
   </view>
 
-  <view class="count-down-text">
-    距离下次抽取还有<t-count-down size="small" time="{{ countDownTime }}" />
-  </view>
+  <view class="count-down-text"> 距离下次抽取还有<t-count-down size="small" time="{{ countDownTime }}" /> </view>
 </view>

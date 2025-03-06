@@ -5,6 +5,13 @@
     "tdesign-miniprogram": "^1.8.5"
   },
   "devDependencies": {
-    "@types/lodash": "^4.17.13"
+    "@babel/parser": "^7.24.0",
+    "@types/lodash": "^4.17.13",
+    "miniprogram-api-typings": "^4.0.5",
+    "prettier": "^2.8.8"
+  },
+  "scripts": {
+    "format": "prettier --write \"**/*.{js,ts,json,wxml,wxss,wxs}\"",
+    "format:check": "prettier --check \"**/*.{js,ts,json,wxml,wxss,wxs}\""
   }
 }

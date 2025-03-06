@@ -23,9 +23,9 @@ Page({
   async loadPageData() {
     const lotteryResult = await this.fetchTodayLotteryResult()
     this.setData({
-      isTodo: lotteryResult.some((item) => item.isSelected),
+      isTodo: lotteryResult.some(item => item.isSelected),
       gamblingChipCount: DEFAULT_GAMBLIMH_CHIP_COUNT - uniqBy(lotteryResult, 'lotteryId').length,
-      todoList: lotteryResult.filter((item) => item.isSelected).map((item) => item.event),
+      todoList: lotteryResult.filter(item => item.isSelected).map(item => item.event),
       lottoryResultList: values(groupBy(lotteryResult, 'lotteryId')).map(item => map(item, 'event')),
     })
   },
@@ -51,7 +51,7 @@ Page({
           startTime: '2024-06-07',
           endTime: '2024-07-08',
           createTime: '2024-12-12',
-        }
+        },
       },
       {
         id: 2,
@@ -66,7 +66,7 @@ Page({
           startTime: '2024-06-07',
           endTime: '2024-07-08',
           createTime: '2024-12-12',
-        }
+        },
       },
       {
         id: 3,
@@ -141,10 +141,10 @@ Page({
 
   async handlePlay() {
     const lotteryResult = await this.generateLotteryResult()
-     this.setData({
+    this.setData({
       lottoryResultList: [...this.data.lottoryResultList, lotteryResult.lotteryResult],
       gamblingChipCount: lotteryResult.chipCount,
-     })
+    })
   },
 
   async generateLotteryResult() {
@@ -157,7 +157,7 @@ Page({
           priority: 4,
           startTime: '2024-06-07',
           endTime: '2024-07-08',
-          createTime: '2024-12-12'
+          createTime: '2024-12-12',
         },
         {
           id: 2,
@@ -165,7 +165,7 @@ Page({
           description: '店子在福田~再不吃可能就过季了没得吃了！！警惕警惕警惕~~~~~',
           priority: 4,
           endTime: '2024-07-08',
-          createTime: '2024-12-01'
+          createTime: '2024-12-01',
         },
         {
           id: 3,
@@ -173,7 +173,7 @@ Page({
           description: '店子在福田~再不吃可能就过季了没得吃了！！警惕警惕警惕~~~~~',
           priority: 4,
           endTime: '2024-07-08',
-          createTime: '2024-12-01'
+          createTime: '2024-12-01',
         },
       ],
       chipCount: this.data.gamblingChipCount - 1,
@@ -183,10 +183,10 @@ Page({
   handleDesireComplete(event) {
     const targetId = event.detail.item.id
     this.setData({
-      todoList: this.data.todoList.map((item) => ({
+      todoList: this.data.todoList.map(item => ({
         ...item,
         status: item.id === targetId ? EventStatusEnum.Done : item.status,
-      }))
+      })),
     })
 
     // TODO update data in database
@@ -194,10 +194,10 @@ Page({
   handleDesireRollback(event) {
     const targetId = event.detail.item.id
     this.setData({
-      todoList: this.data.todoList.map((item) => ({
+      todoList: this.data.todoList.map(item => ({
         ...item,
         status: item.id === targetId ? EventStatusEnum.Todo : item.status,
-      }))
+      })),
     })
 
     // TODO update data in database

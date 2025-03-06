@@ -1,11 +1,6 @@
 <view class="button-content" bind:tap="handleButtonClick">
   <text>{{ value ? value : '不限' }}</text>
-  <t-icon
-    wx:if="{{ value }}"
-    size="13"
-    name="close"
-    catch:tap="handleDateClear"
-  ></t-icon>
+  <t-icon wx:if="{{ value }}" size="13" name="close" catch:tap="handleDateClear"></t-icon>
 </view>
 
 <t-date-time-picker

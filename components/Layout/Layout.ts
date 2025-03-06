@@ -1,24 +1,17 @@
 // components/Layout/Layout.ts
 Component({
-
   /**
    * Component properties
    */
-  properties: {
-
-  },
+  properties: {},
 
   /**
    * Component initial data
    */
-  data: {
-
-  },
+  data: {},
 
   /**
    * Component methods
    */
-  methods: {
-
-  }
+  methods: {},
 })

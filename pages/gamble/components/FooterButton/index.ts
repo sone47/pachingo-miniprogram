@@ -1,6 +1,5 @@
 // pages/gamble/components/FooterButton/index.ts
 Component({
-
   /**
    * Component properties
    */
@@ -12,7 +11,7 @@ Component({
     lottoryResultList: {
       type: Array,
       value: [],
-    }
+    },
   },
 
   /**
@@ -46,6 +45,6 @@ Component({
 
     handlePlayButtonTap() {
       this.triggerEvent('play')
-    }
-  }
+    },
+  },
 })

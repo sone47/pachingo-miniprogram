@@ -1,11 +1,7 @@
 Component({
-  properties: {
+  properties: {},
 
-  },
-
-  data: {
-
-  },
+  data: {},
 
   methods: {
     handleGoToPool() {
@@ -13,5 +9,5 @@ Component({
         url: '/pages/pool/pool',
       })
     },
-  }
+  },
 })
