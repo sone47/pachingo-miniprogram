@@ -28,9 +28,10 @@
     "layout": "./components/Layout/Layout"
   },
   "resolveAlias": {
-    "@utils/*": "utils/*",
-    "@components/*": "components/*",
-    "@constant/*": "constant/*",
-    "@api/*": "api/*"
+    "@/utils/*": "utils/*",
+    "@/components/*": "components/*",
+    "@/constant/*": "constant/*",
+    "@/api/*": "api/*",
+    "@/store/*": "store/*"
   }
 }

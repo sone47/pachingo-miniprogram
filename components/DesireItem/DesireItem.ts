@@ -1,4 +1,4 @@
-import { EventStatusEnum } from '@constant/index'
+import { EventStatusEnum } from '@/constant/index'
 
 Component({
   properties: {

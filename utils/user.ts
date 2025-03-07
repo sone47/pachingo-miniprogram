@@ -1,5 +1,5 @@
-import type { LoginResult, LoginParams } from '@api/types/user'
-import { userApi } from '@api/index'
+import type { LoginResult, LoginParams } from '@/api/types/user'
+import { userApi } from '@/api/index'
 
 // 存储键名
 const TOKEN_KEY = 'user_token'

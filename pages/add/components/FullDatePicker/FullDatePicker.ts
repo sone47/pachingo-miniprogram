@@ -1,6 +1,6 @@
 import dayjs from 'dayjs'
 
-import { formatDate } from '@utils/date'
+import { formatDate } from '@/utils/date'
 
 Component({
   properties: {

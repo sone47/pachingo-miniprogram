@@ -1,6 +1,6 @@
 import { uniqBy, groupBy, values, map } from 'lodash'
 
-import { DEFAULT_GAMBLIMH_CHIP_COUNT, EventStatusEnum } from '@constant/index'
+import { DEFAULT_GAMBLIMH_CHIP_COUNT, EventStatusEnum } from '@/constant/index'
 
 Page({
   data: {

@@ -1,6 +1,6 @@
 import Message from 'tdesign-miniprogram/message/index'
 
-import userManager from '../../utils/user'
+import userManager from '@/utils/user'
 
 Page({
   data: {

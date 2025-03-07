@@ -2,6 +2,8 @@
   "dependencies": {
     "dayjs": "^1.11.13",
     "lodash": "^4.17.21",
+    "mobx-miniprogram": "^6.12.3",
+    "mobx-miniprogram-bindings": "^5.0.0",
     "tdesign-miniprogram": "^1.8.5"
   },
   "devDependencies": {

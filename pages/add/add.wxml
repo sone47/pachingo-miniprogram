@@ -1,7 +1,7 @@
 <!--pages/add/add.wxml-->
 <layout>
   <view class="header">
-    <value-icon isFilled="{{ false }}" value="{{ userDesireValue }}" iconSize="{{ 24 }}"></value-icon>
+    <value-icon isFilled="{{ false }}" value="{{ desireValue }}" iconSize="{{ 24 }}"></value-icon>
     <pool-entry></pool-entry>
   </view>
 
@@ -19,7 +19,7 @@
       </view>
 
       <view class="operate-section">
-        <priority-input-dialog upper-limit="{{ userDesireValue }}" model:value="{{ priority }}">
+        <priority-input-dialog upper-limit="{{ desireValue }}" model:value="{{ priority }}">
           <value-icon value="{{ priority }}" iconSize="{{ 24 }}"></value-icon>
         </priority-input-dialog>
         <view class="icon-wrapper">
@@ -36,4 +36,6 @@
 
     <t-button class="button" theme="primary" size="large" bind:tap="handleSave"> 保存 </t-button>
   </view>
+
+  <t-message id="t-message" />
 </layout>

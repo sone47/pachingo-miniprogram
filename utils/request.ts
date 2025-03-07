@@ -3,8 +3,8 @@
  * 封装微信小程序的网络请求API
  */
 
-import userManager from '@utils/user'
-import type { ResponseData } from '@api/types/common'
+import userManager from './user'
+import type { ResponseData } from '../api/types/common'
 
 // 声明微信小程序的类型
 declare const wx: {
@@ -172,7 +172,6 @@ class Request {
     })
 
     return new Promise<T>((resolve, reject) => {
-      console.log(mergedOptions)
       wx.request({
         ...mergedOptions,
         success: (res: WxRequestSuccessCallbackResult) => {
