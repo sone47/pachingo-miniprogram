@@ -9,23 +9,26 @@ Page({
     endTime: null as string | null,
   },
 
+  onShow() {
+    this.getTabBar().setData({ selected: 'add' })
+    wx.setNavigationBarTitle({ title: '添加心愿' })
+  },
+
   handleGoToPool() {
     wx.navigateTo({
       url: '/pages/pool/pool',
     })
   },
+
   handleStartTimeChange(e: { detail: string }) {
     this.setData({ startTime: e.detail })
   },
+
   handleEndTimeChange(e: { detail: string }) {
     this.setData({ endTime: e.detail })
   },
+
   handleSave() {
     console.log(this.data)
-  },
-
-  onShow() {
-    this.getTabBar().setData({ selected: 'add' })
-    wx.setNavigationBarTitle({ title: '添加心愿' })
   },
 })

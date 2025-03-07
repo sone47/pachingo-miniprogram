@@ -1,5 +1,5 @@
 {
-  "pages": ["pages/add/add", "pages/gamble/gamble", "pages/calendar/calendar", "pages/pool/pool"],
+  "pages": ["pages/add/add", "pages/gamble/gamble", "pages/calendar/calendar", "pages/pool/pool", "pages/login/login"],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
