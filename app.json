@@ -30,6 +30,7 @@
   "resolveAlias": {
     "@utils/*": "utils/*",
     "@components/*": "components/*",
-    "@constant/*": "constant/*"
+    "@constant/*": "constant/*",
+    "@api/*": "api/*"
   }
 }

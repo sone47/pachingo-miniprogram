@@ -3,7 +3,8 @@
  * 封装微信小程序的网络请求API
  */
 
-import userManager from './user'
+import userManager from '@utils/user'
+import type { ResponseData } from '@api/types/common'
 
 // 声明微信小程序的类型
 declare const wx: {
@@ -16,7 +17,7 @@ declare const wx: {
 // 请求方法类型
 type Method = 'OPTIONS' | 'GET' | 'HEAD' | 'POST' | 'PUT' | 'DELETE' | 'TRACE' | 'CONNECT'
 
-// 请求参数接口
+// 请求选项接口
 interface RequestOptions {
   url: string
   method?: Method
@@ -28,14 +29,7 @@ interface RequestOptions {
   enableQuic?: boolean
 }
 
-// 响应结果接口
-interface ResponseData<T = any> {
-  code: number
-  message: string
-  data: T
-}
-
-// 微信请求响应接口
+// 微信请求成功回调结果
 interface WxRequestSuccessCallbackResult {
   data: any
   statusCode: number
@@ -127,12 +121,13 @@ class Request {
     // 请求成功
     if (statusCode >= 200 && statusCode < 300) {
       // 这里可以根据业务状态码进行处理
-      if (data.code === 0) {
-        return Promise.resolve(data.data)
+      const responseData = data as ResponseData<T>
+      if (responseData.code === 0) {
+        return Promise.resolve(responseData.data)
       }
 
       // 处理业务错误
-      const error = new Error(data.message || '请求失败')
+      const error = new Error(responseData.message || '请求失败')
       return Promise.reject(error)
     }
 
@@ -280,7 +275,6 @@ class Request {
       const currentPage = pages[pages.length - 1]
       return currentPage.route === 'pages/login/login'
     }
-
     return false
   }
 }
