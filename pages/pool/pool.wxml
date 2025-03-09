@@ -3,8 +3,10 @@
     <card wx:for="{{ listData }}" wx:key="id" wx:for-item="itemData">
       <t-swipe-cell>
         <desire-item data="{{ itemData }}"></desire-item>
-        <view slot="right" class="swipe-button" bind:tap="handleRemove">放弃</view>
+        <view slot="right" class="swipe-button" data-id="{{ itemData.id }}" bind:tap="handleRemove">放弃</view>
       </t-swipe-cell>
     </card>
   </view>
+
+  <t-message id="t-message"></t-message>
 </layout>

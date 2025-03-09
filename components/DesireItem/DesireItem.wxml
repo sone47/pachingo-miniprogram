@@ -1,3 +1,5 @@
+<wxs src="../../utils/date.wxs" module="dateUtils" />
+
 <view class="container">
   <t-checkbox
     wx:if="{{ completable }}"
@@ -12,13 +14,13 @@
         <text class="name{{ completable && isComplete ? ' completed' : '' }}">{{ data.name }}</text>
         <value-icon value="{{ data.priority ? data.priority : 0 }}"></value-icon>
       </view>
-      <text class="create-time">{{ data.createTime }}添加</text>
+      <text class="create-time">{{ dateUtils.formatDate(data.createTime, 'yyyy-MM-dd') }}添加</text>
     </view>
     <view slot="description" class="detail">
       {{ data.description }}
       <view class="date">
         <t-icon name="calendar-1-filled" size="14px" />
-        <text>{{ data.startTime ? data.startTime : '不限' }} - {{ data.endTime ? data.endTime : '不限' }}</text>
+        <text>{{ data.startTime ? dateUtils.formatDate(data.startTime) : '不限' }} - {{ data.endTime ? dateUtils.formatDate(data.endTime) : '不限' }}</text>
       </view>
     </view>
   </t-cell>

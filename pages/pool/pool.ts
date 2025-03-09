@@ -1,27 +1,42 @@
+import { userStore } from '@/store/user'
+
+import { getDesireList, removeDesire } from '@/api/desire'
+import { Desire } from '@/api/types/desire'
+import { Message } from 'tdesign-miniprogram'
+
 Page({
-  data: {
-    listData: [
-      {
-        id: 1,
-        name: '吃柿子甜品',
-        description: '店子在福田~再不吃可能就过季了没得吃了！！警惕警惕警惕~~~~~',
-        priority: 4,
-        startTime: '2024-06-07',
-        endTime: '2024-07-08',
-        createTime: '2024-12-12',
-      },
-      {
-        id: 2,
-        name: '吃柿子甜品',
-        description: '店子在福田~再不吃可能就过季了没得吃了！！警惕警惕警惕~~~~~',
-        priority: 4,
-        endTime: '2024-07-08',
-        createTime: '2024-12-01',
-      },
-    ],
+  onLoad() {
+    this.fetchDesireList()
   },
 
-  handleRemove() {
-    console.log('放弃')
+  data: {
+    listData: [] as Desire[],
+  },
+
+  async handleRemove(e: { currentTarget: { dataset: { id: number } } }) {
+    const deletedId = e.currentTarget.dataset.id
+    try {
+      await removeDesire(deletedId)
+      this.setData({
+        listData: this.data.listData.filter(item => item.id !== deletedId),
+      })
+
+      userStore.getDesireValue()
+    } catch (error) {
+      console.error(error)
+      Message.error({
+        context: this,
+        offset: ['20rpx', '32rpx'],
+        duration: 5000,
+        content: '删除失败',
+      })
+    }
+  },
+
+  async fetchDesireList() {
+    const res = await getDesireList({ page: 1, pageSize: 10 })
+    this.setData({
+      listData: [...this.data.listData, ...res.list],
+    })
   },
 })

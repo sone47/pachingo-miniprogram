@@ -1,0 +1,49 @@
+/**
+ * 格式化日期
+ * @param {string|number} value - 日期值
+ * @param {string} formatter - 格式化模式
+ * @return {string} 格式化后的日期字符串
+ */
+function formatDate(value, formatter = 'yyyy-MM-dd') {
+  if (!value) {
+    value = getDate().getTime()
+  }
+
+  var date = getDate(value)
+
+  var year = date.getFullYear()
+  var month = date.getMonth() + 1
+  var day = date.getDate()
+  var hour = date.getHours()
+  var minute = date.getMinutes()
+  var second = date.getSeconds()
+
+  // 补零函数
+  function padZero(n) {
+    return n < 10 ? '0' + n : '' + n
+  }
+
+  formatter = formatter.replace(getRegExp('yyyy', 'g'), year)
+  formatter = formatter.replace(getRegExp('MM', 'g'), padZero(month))
+  formatter = formatter.replace(getRegExp('dd', 'g'), padZero(day))
+  formatter = formatter.replace(getRegExp('HH', 'g'), padZero(hour))
+  formatter = formatter.replace(getRegExp('mm', 'g'), padZero(minute))
+  formatter = formatter.replace(getRegExp('ss', 'g'), padZero(second))
+
+  return formatter
+}
+
+/**
+ * 格式化日期时间
+ * @param {string|number} value - 日期值
+ * @param {string} formatter - 格式化模式
+ * @return {string} 格式化后的日期时间字符串
+ */
+function formatDateTime(value, formatter = 'yyyy-MM-dd HH:mm:ss') {
+  return formatDate(value, formatter)
+}
+
+module.exports = {
+  formatDate: formatDate,
+  formatDateTime: formatDateTime,
+}

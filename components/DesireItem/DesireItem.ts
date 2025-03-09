@@ -24,7 +24,7 @@ Component({
   },
 
   methods: {
-    handleCompleteCheckedChange(event) {
+    handleCompleteCheckedChange(event: { detail: { checked: boolean } }) {
       const checked = event.detail.checked
       if (checked) {
         this.triggerEvent('complete', {

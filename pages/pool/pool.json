@@ -2,6 +2,7 @@
   "usingComponents": {
     "desire-item": "/components/DesireItem/DesireItem",
     "card": "/components/Card/index",
-    "t-swipe-cell": "tdesign-miniprogram/swipe-cell/swipe-cell"
+    "t-swipe-cell": "tdesign-miniprogram/swipe-cell/swipe-cell",
+    "t-message": "tdesign-miniprogram/message/message"
   }
 }

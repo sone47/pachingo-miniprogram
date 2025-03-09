@@ -14,15 +14,47 @@ importers:
       lodash:
         specifier: ^4.17.21
         version: 4.17.21
+      mobx-miniprogram:
+        specifier: ^6.12.3
+        version: 6.12.3
+      mobx-miniprogram-bindings:
+        specifier: ^5.0.0
+        version: 5.0.0(miniprogram-api-typings@4.0.5)(mobx-miniprogram@6.12.3)
       tdesign-miniprogram:
         specifier: ^1.8.5
         version: 1.8.6
     devDependencies:
+      '@babel/parser':
+        specifier: ^7.24.0
+        version: 7.26.9
       '@types/lodash':
         specifier: ^4.17.13
         version: 4.17.16
+      miniprogram-api-typings:
+        specifier: ^4.0.5
+        version: 4.0.5
+      prettier:
+        specifier: ^2.8.8
+        version: 2.8.8
 
 packages:
+
+  '@babel/helper-string-parser@7.25.9':
+    resolution: {integrity: sha512-4A/SCr/2KLd5jrtOMFzaKjVtAei3+2r/NChoBNoZ3EyP/+GlhoaEGoWOZUmFmoITP7zOJyHIMm+DYRd8o3PvHA==}
+    engines: {node: '>=6.9.0'}
+
+  '@babel/helper-validator-identifier@7.25.9':
+    resolution: {integrity: sha512-Ed61U6XJc3CVRfkERJWDz4dJwKe7iLmmJsbOGu9wSloNSFttHV0I8g6UAgb7qnK5ly5bGLPd4oXZlxCdANBOWQ==}
+    engines: {node: '>=6.9.0'}
+
+  '@babel/parser@7.26.9':
+    resolution: {integrity: sha512-81NWa1njQblgZbQHxWHpxxCzNsa3ZwvFqpUg7P+NNUU6f3UU2jBEg4OlF/J6rl8+PQGh1q6/zWScd001YwcA5A==}
+    engines: {node: '>=6.0.0'}
+    hasBin: true
+
+  '@babel/types@7.26.9':
+    resolution: {integrity: sha512-Y3IR1cRnOxOCDvMmNiym7XpXQ93iGDDPHx+Zj+NM+rg0fBaShfQLkg+hKPaZCEvg5N/LeCo4+Rj/i3FuJsIQaw==}
+    engines: {node: '>=6.9.0'}
 
   '@types/lodash@4.17.16':
     resolution: {integrity: sha512-HX7Em5NYQAXKW+1T+FiuG27NGwzJfCX3s1GjOa7ujxZa52kjJLOr4FUxT+giF6Tgxv1e+/czV/iTtBw27WTU9g==}
@@ -33,6 +65,23 @@ packages:
   lodash@4.17.21:
     resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
 
+  miniprogram-api-typings@4.0.5:
+    resolution: {integrity: sha512-34pYYg4pwjsE752x/zs7QYLL0x0UGBL/IxTuVRRIXbFcv1msDRCWGyZK5KpsDm2P78Fdaw+B80B8R1qbvX6YhQ==}
+
+  mobx-miniprogram-bindings@5.0.0:
+    resolution: {integrity: sha512-/xj+osYXwiUXgDYmPCQ/oh3ntZqmH+bkHzzoRJPhJfauKgQxrjiUsGZaBhOx3w83kKo0bQyQdkE0dZQBhw/1ZA==}
+    peerDependencies:
+      miniprogram-api-typings: ^4.0.1
+      mobx-miniprogram: ^6.0.0
+
+  mobx-miniprogram@6.12.3:
+    resolution: {integrity: sha512-GEq1EG7jZPnrHYV43oppa6jY9lgbNRuGPiXyOFRoluHjd5LIGBf3a+zXMjzO1AVwrFOWvVRazxtzfiRXMUUqZw==}
+
+  prettier@2.8.8:
+    resolution: {integrity: sha512-tdN8qQGvNjw4CHbY+XXk0JgCXn9QiF21a55rBe5LJAU+kDyC4WQn4+awm2Xfk2lQMk5fKup9XgzTZtGkjBdP9Q==}
+    engines: {node: '>=10.13.0'}
+    hasBin: true
+
   tdesign-miniprogram@1.8.6:
     resolution: {integrity: sha512-FbV6/1Evfc5qoy7NQPuLwsrnAGytAAbKkPN/eaA02Qe5YxBgsJlYM7oXI5rSiinjjOC6T/wbGTFurEH/ASd+dQ==}
 
@@ -41,11 +90,35 @@ packages:
 
 snapshots:
 
+  '@babel/helper-string-parser@7.25.9': {}
+
+  '@babel/helper-validator-identifier@7.25.9': {}
+
+  '@babel/parser@7.26.9':
+    dependencies:
+      '@babel/types': 7.26.9
+
+  '@babel/types@7.26.9':
+    dependencies:
+      '@babel/helper-string-parser': 7.25.9
+      '@babel/helper-validator-identifier': 7.25.9
+
   '@types/lodash@4.17.16': {}
 
   dayjs@1.11.13: {}
 
   lodash@4.17.21: {}
+
+  miniprogram-api-typings@4.0.5: {}
+
+  mobx-miniprogram-bindings@5.0.0(miniprogram-api-typings@4.0.5)(mobx-miniprogram@6.12.3):
+    dependencies:
+      miniprogram-api-typings: 4.0.5
+      mobx-miniprogram: 6.12.3
+
+  mobx-miniprogram@6.12.3: {}
+
+  prettier@2.8.8: {}
 
   tdesign-miniprogram@1.8.6:
     dependencies:

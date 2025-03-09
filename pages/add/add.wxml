@@ -34,7 +34,9 @@
       </view>
     </view>
 
-    <t-button class="button" theme="primary" size="large" bind:tap="handleSave"> 保存 </t-button>
+    <t-button class="button" theme="primary" size="large" loading="{{ saveLoading }}" bind:tap="handleSave">
+      保存
+    </t-button>
   </view>
 
   <t-message id="t-message" />
