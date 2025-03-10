@@ -1,12 +1,9 @@
-import Message from 'tdesign-miniprogram/message/index'
-
 import userManager from '@/utils/user'
 
 Page({
   data: {
     username: '',
     password: '',
-    loading: false,
     errorMsg: { password: '', username: '' },
     showPassword: false,
   },
@@ -58,27 +55,14 @@ Page({
       return
     }
 
-    try {
-      // 设置加载状态
-      this.setData({ loading: true, errorMsg: { ...this.data.errorMsg, password: '', username: '' } })
+    // 设置加载状态
+    this.setData({ errorMsg: { ...this.data.errorMsg, password: '', username: '' } })
 
-      // 发送登录请求
-      await userManager.login(username, password)
+    // 发送登录请求
+    await userManager.login(username, password)
 
-      // 登录成功，返回上一页或首页
-      this.navigateBack()
-    } catch (error: any) {
-      Message.error({
-        context: this,
-        offset: ['180rpx', '32rpx'],
-        duration: 5000,
-        content: error.message || '登录失败，请检查用户名和密码',
-      })
-    } finally {
-      this.setData({
-        loading: false,
-      })
-    }
+    // 登录成功，返回上一页或首页
+    this.navigateBack()
   },
 
   /**

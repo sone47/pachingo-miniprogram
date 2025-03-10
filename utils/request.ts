@@ -12,6 +12,14 @@ declare const wx: {
   getStorageSync: (key: string) => any
   removeStorageSync: (key: string) => void
   navigateTo: (options: { url: string }) => void
+  showLoading: (options: { title: string; mask?: boolean }) => void
+  hideLoading: () => void
+  showToast: (options: {
+    title: string
+    icon?: 'success' | 'error' | 'loading' | 'none'
+    duration?: number
+    mask?: boolean
+  }) => void
 }
 
 // 请求方法类型
@@ -164,6 +172,12 @@ class Request {
    * @returns Promise
    */
   request<T = any>(options: RequestOptions): Promise<T> {
+    // 显示加载提示
+    wx.showLoading({
+      title: '加载中...',
+      mask: true,
+    })
+
     // 合并请求参数
     const mergedOptions = this.requestInterceptor({
       ...options,
@@ -175,9 +189,29 @@ class Request {
       wx.request({
         ...mergedOptions,
         success: (res: WxRequestSuccessCallbackResult) => {
-          this.responseInterceptor<T>(res).then(resolve).catch(reject)
+          // 隐藏加载提示
+          wx.hideLoading()
+          this.responseInterceptor<T>(res)
+            .then(resolve)
+            .catch(error => {
+              // 显示错误提示
+              wx.showToast({
+                title: error.message || '请求失败',
+                icon: 'error',
+                duration: 2000,
+              })
+              reject(error)
+            })
         },
         fail: (err: WxRequestFailCallbackResult) => {
+          // 隐藏加载提示
+          wx.hideLoading()
+          // 显示错误提示
+          wx.showToast({
+            title: err.errMsg || '网络请求失败',
+            icon: 'error',
+            duration: 2000,
+          })
           reject(new Error(err.errMsg || '网络请求失败'))
         },
       })

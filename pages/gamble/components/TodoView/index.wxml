@@ -4,6 +4,7 @@
       <desire-item
         completable
         data="{{ desireItem }}"
+        data-item="{{ desireItem }}"
         bind:complete="handleComplete"
         bind:rollback="handleRollback"
       ></desire-item>

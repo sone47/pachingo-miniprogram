@@ -6,7 +6,6 @@
     "desire-item": "/components/DesireItem/DesireItem",
     "footer-button": "./components/FooterButton/index",
     "todo-view": "./components/TodoView/index",
-    "t-icon": "tdesign-miniprogram/icon/icon",
-    "t-message": "tdesign-miniprogram/message/message"
+    "t-icon": "tdesign-miniprogram/icon/icon"
   }
 }

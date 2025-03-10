@@ -28,10 +28,6 @@
       </view>
     </t-input>
 
-    <t-button class="login-btn" size="large" theme="primary" block loading="{{ loading }}" bind:tap="handleLogin">
-      登录
-    </t-button>
+    <t-button class="login-btn" size="large" theme="primary" block bind:tap="handleLogin"> 登录 </t-button>
   </view>
-
-  <t-message id="t-message" />
 </view>

@@ -1,8 +1,6 @@
-import { drawLottery, getTodayLottery } from '@/api/lottery'
+import { drawLottery, getTodayLottery, selectLottery } from '@/api/lottery'
 import { DEFAULT_GAMBLIMH_CHIP_COUNT, EventStatusEnum } from '@/constant/index'
 import { Desire, Lottery } from '@/api/types'
-import { Message } from 'tdesign-miniprogram'
-
 Page({
   data: {
     isTodo: false,
@@ -44,8 +42,12 @@ Page({
   },
 
   async handlePrint() {
-    // TODO 选中心愿
-    this.loadPageData()
+    const lottery = await selectLottery(this.data.lottoryResultList[this.data.swiperCurrent].id)
+    this.setData({
+      isTodo: true,
+      todoList: lottery.desires,
+    })
+    this.setNavigationBarTitle()
   },
 
   async handlePlay() {
@@ -58,18 +60,8 @@ Page({
   },
 
   async generateLotteryResult() {
-    try {
-      const lotteryResult = await drawLottery()
-      return lotteryResult
-    } catch (error: any) {
-      Message.error({
-        context: this,
-        offset: ['20rpx', '32rpx'],
-        duration: 5000,
-        content: error.message || '抽取失败',
-      })
-      throw error
-    }
+    const lotteryResult = await drawLottery()
+    return lotteryResult
   },
 
   handleSwiperChange(event: any) {
@@ -78,8 +70,8 @@ Page({
     })
   },
 
-  handleDesireComplete(event) {
-    const targetId = event.detail.item.id
+  handleDesireComplete(event: { detail: Desire }) {
+    const targetId = event.detail.id
     this.setData({
       todoList: this.data.todoList.map(item => ({
         ...item,
@@ -89,8 +81,8 @@ Page({
 
     // TODO update data in database
   },
-  handleDesireRollback(event) {
-    const targetId = event.detail.item.id
+  handleDesireRollback(event: { detail: Desire }) {
+    const targetId = event.detail.id
     this.setData({
       todoList: this.data.todoList.map(item => ({
         ...item,

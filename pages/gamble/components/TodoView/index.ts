@@ -1,11 +1,12 @@
 import dayjs from 'dayjs'
 
 import { EventStatusEnum } from '@/constant/index'
+import { Desire } from '@/api/types'
 
 Component({
   properties: {
     data: {
-      type: Array,
+      type: Array as unknown as Desire[],
       value: [],
     },
   },
@@ -19,12 +20,12 @@ Component({
    * Component methods
    */
   methods: {
-    handleComplete(event) {
-      this.triggerEvent('complete', event.detail)
+    handleComplete(event: { detail: { item: Desire } }) {
+      this.triggerEvent('complete', event.detail.item)
     },
 
-    handleRollback(event) {
-      this.triggerEvent('rollback', event.detail)
+    handleRollback(event: { detail: { item: Desire } }) {
+      this.triggerEvent('rollback', event.detail.item)
     },
   },
 })

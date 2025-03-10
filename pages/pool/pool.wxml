@@ -7,6 +7,4 @@
       </t-swipe-cell>
     </card>
   </view>
-
-  <t-message id="t-message"></t-message>
 </layout>

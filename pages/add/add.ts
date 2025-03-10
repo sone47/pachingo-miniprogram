@@ -2,7 +2,7 @@ import { createStoreBindings } from 'mobx-miniprogram-bindings'
 import { userStore } from '@/store/user'
 
 import { addDesire } from '@/api/desire'
-import { Message } from 'tdesign-miniprogram'
+import { formatDateTime } from '@/utils/date'
 
 Page({
   data: {
@@ -11,8 +11,6 @@ Page({
     priority: 1,
     startTime: null as string | null,
     endTime: null as string | null,
-
-    saveLoading: false,
   },
 
   async onLoad() {
@@ -47,23 +45,16 @@ Page({
   },
 
   async handleSave() {
-    this.setData({ saveLoading: true })
-    try {
-      await addDesire({
-        name: this.data.name,
-        description: this.data.description || '还没有详细描述o~',
-        priority: this.data.priority,
-        startTime: this.data.startTime ? new Date(this.data.startTime) : undefined,
-        endTime: this.data.endTime ? new Date(this.data.endTime) : undefined,
-        tags: ' ',
-      })
+    await addDesire({
+      name: this.data.name,
+      description: this.data.description || '还没有详细描述o~',
+      priority: this.data.priority,
+      startTime: this.data.startTime ? formatDateTime(this.data.startTime) : undefined,
+      endTime: this.data.endTime ? formatDateTime(this.data.endTime) : undefined,
+      tags: ' ',
+    })
 
-      this.handleSaveSuccess()
-    } catch (error) {
-      console.error(error)
-    } finally {
-      this.setData({ saveLoading: false })
-    }
+    this.handleSaveSuccess()
   },
 
   async handleSaveSuccess() {
@@ -75,11 +66,9 @@ Page({
       endTime: null,
     })
 
-    Message.success({
-      context: this,
-      duration: 5000,
-      content: '心愿添加成功',
-      offset: ['180rpx', '32rpx'],
+    wx.showToast({
+      title: '心愿添加成功',
+      icon: 'success',
     })
 
     this.getDesireValue()

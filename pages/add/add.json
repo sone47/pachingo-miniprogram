@@ -4,7 +4,6 @@
     "t-input": "tdesign-miniprogram/input/input",
     "t-textarea": "tdesign-miniprogram/textarea/textarea",
     "t-icon": "tdesign-miniprogram/icon/icon",
-    "t-message": "tdesign-miniprogram/message/message",
     "priority-input-dialog": "./components/PriorityInputDialog/PriorityInputDialog",
     "date-picker": "./components/FullDatePicker/FullDatePicker",
     "value-icon": "/components/ValueIcon/index",

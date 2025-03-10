@@ -8,3 +8,7 @@ export async function drawLottery() {
 export async function getTodayLottery() {
   return request.get<Lottery[]>('/action/lottery/today')
 }
+
+export async function selectLottery(id: number) {
+  return request.post<Lottery>('/action/lottery/select', { id })
+}
