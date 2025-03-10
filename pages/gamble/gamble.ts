@@ -1,6 +1,9 @@
 import { drawLottery, getTodayLottery, selectLottery } from '@/api/lottery'
+import { completeDesire, rollbackDesire } from '@/api/desire'
 import { DEFAULT_GAMBLIMH_CHIP_COUNT, EventStatusEnum } from '@/constant/index'
 import { Desire, Lottery } from '@/api/types'
+import { userStore } from '@/store/user'
+
 Page({
   data: {
     isTodo: false,
@@ -70,26 +73,25 @@ Page({
     })
   },
 
-  handleDesireComplete(event: { detail: Desire }) {
+  async handleDesireComplete(event: { detail: Desire }) {
     const targetId = event.detail.id
-    this.setData({
-      todoList: this.data.todoList.map(item => ({
-        ...item,
-        status: item.id === targetId ? EventStatusEnum.Done : item.status,
-      })),
-    })
-
-    // TODO update data in database
+    await completeDesire(targetId)
+    this.handleDesireStatusChange(targetId, EventStatusEnum.Done)
   },
-  handleDesireRollback(event: { detail: Desire }) {
+
+  async handleDesireRollback(event: { detail: Desire }) {
     const targetId = event.detail.id
+    await rollbackDesire(targetId)
+    this.handleDesireStatusChange(targetId, EventStatusEnum.Todo)
+  },
+
+  handleDesireStatusChange(targetId: number, status: EventStatusEnum) {
     this.setData({
       todoList: this.data.todoList.map(item => ({
         ...item,
-        status: item.id === targetId ? EventStatusEnum.Todo : item.status,
+        status: item.id === targetId ? status : item.status,
       })),
     })
-
-    // TODO update data in database
+    userStore.getDesireValue()
   },
 })

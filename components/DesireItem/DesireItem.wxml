@@ -8,7 +8,7 @@
     style="padding-right: 0"
     bind:change="handleCompleteCheckedChange"
   />
-  <t-cell bordered="{{ false }}" class="{{ checkable ? 'no-padding-left-cell' : '' }}">
+  <t-cell bordered="{{ false }}" class="{{ completable ? 'no-padding-left-cell' : '' }}">
     <view slot="title" class="header">
       <view class="left">
         <text class="name{{ completable && isComplete ? ' completed' : '' }}">{{ data.name }}</text>

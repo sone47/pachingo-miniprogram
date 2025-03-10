@@ -17,3 +17,11 @@ export async function getDesireList(params: PageParams) {
 export async function removeDesire(id: number) {
   return request.delete<number>(`/action/desire/${id}`)
 }
+
+export async function completeDesire(id: number) {
+  return request.put<number>(`/action/desire/${id}/complete`)
+}
+
+export async function rollbackDesire(id: number) {
+  return request.put<number>(`/action/desire/${id}/cancel-complete`)
+}
