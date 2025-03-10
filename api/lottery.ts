@@ -2,7 +2,7 @@ import request from '@/utils/request'
 import { Lottery } from './types'
 
 export async function drawLottery() {
-  return request.post<Lottery[]>('/action/lottery/draw')
+  return request.post<Lottery>('/action/lottery/draw')
 }
 
 export async function getTodayLottery() {

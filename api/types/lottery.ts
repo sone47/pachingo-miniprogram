@@ -7,5 +7,5 @@ export interface Lottery {
   operatorId: number
   createTime: Date
   attempt: number
-  desire: Desire
+  desires: Desire[]
 }

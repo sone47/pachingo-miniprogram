@@ -1,4 +1,3 @@
-import { uniqBy, groupBy, values, map } from 'lodash'
 import { drawLottery, getTodayLottery } from '@/api/lottery'
 import { DEFAULT_GAMBLIMH_CHIP_COUNT, EventStatusEnum } from '@/constant/index'
 import { Desire, Lottery } from '@/api/types'
@@ -8,7 +7,7 @@ Page({
   data: {
     isTodo: false,
     gamblingChipCount: DEFAULT_GAMBLIMH_CHIP_COUNT,
-    lottoryResultList: [] as Lottery[][],
+    lottoryResultList: [] as Lottery[],
     todoList: [] as Desire[],
 
     swiperCurrent: 0,
@@ -28,9 +27,9 @@ Page({
     const lotteryResult = await this.fetchTodayLotteryResult()
     this.setData({
       isTodo: lotteryResult.some(item => item.isSelected),
-      gamblingChipCount: DEFAULT_GAMBLIMH_CHIP_COUNT - uniqBy(lotteryResult, 'attempt').length,
-      todoList: lotteryResult.filter(item => item.isSelected).map(item => item.desire),
-      lottoryResultList: values(groupBy(lotteryResult, 'attempt')),
+      gamblingChipCount: DEFAULT_GAMBLIMH_CHIP_COUNT - lotteryResult.length,
+      todoList: lotteryResult.find(item => item.isSelected)?.desires || [],
+      lottoryResultList: lotteryResult,
     })
   },
 

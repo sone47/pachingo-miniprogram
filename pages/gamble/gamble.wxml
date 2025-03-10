@@ -34,8 +34,8 @@
           >
             <swiper-item wx:for="{{ lottoryResultList }}" wx:key="this">
               <view class="content">
-                <card wx:for="{{ item }}" wx:key="id" wx:for-item="lotteryItem">
-                  <desire-item data="{{ lotteryItem.desire }}"></desire-item>
+                <card wx:for="{{ item.desires }}" wx:key="id" wx:for-item="desire">
+                  <desire-item data="{{ desire }}"></desire-item>
                 </card>
               </view>
             </swiper-item>

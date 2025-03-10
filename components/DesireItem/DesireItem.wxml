@@ -20,10 +20,10 @@
       {{ data.description }}
       <view class="date">
         <t-icon name="calendar-1-filled" size="14px" />
-        <text>
+        <view>
           {{ data.startTime ? dateUtils.formatDate(data.startTime) : '不限' }} - {{ data.endTime ?
           dateUtils.formatDate(data.endTime) : '不限' }}
-        </text>
+        </view>
       </view>
     </view>
   </t-cell>
