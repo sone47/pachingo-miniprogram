@@ -19,16 +19,14 @@
       </view>
 
       <view class="operate-section">
-        <priority-input-dialog upper-limit="{{ desireValue }}" model:value="{{ priority }}">
+        <priority-input-dialog upper-limit="{{ desireValue || 0 }}" model:value="{{ priority }}">
           <value-icon value="{{ priority }}" iconSize="{{ 24 }}"></value-icon>
         </priority-input-dialog>
         <view class="icon-wrapper">
           <t-icon name="calendar-1-filled" size="48rpx" />
           <date-picker
-            :startTime="{{ startTime }}"
-            :endTime="{{ endTime }}"
-            bind:starttimechange="handleStartTimeChange"
-            bind:endtimechange="handleEndTimeChange"
+            model:startTime="{{ startTime }}"
+            model:endTime="{{ endTime }}"
           ></date-picker>
         </view>
       </view>

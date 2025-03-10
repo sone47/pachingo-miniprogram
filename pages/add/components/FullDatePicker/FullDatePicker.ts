@@ -8,9 +8,6 @@ Component({
     endTime: null,
   },
 
-  /**
-   * Component initial data
-   */
   data: {
     startTimeThreshold: formatDate(),
     endTimeThreshold: formatDate(dayjs().add(1, 'year')),
@@ -25,7 +22,6 @@ Component({
           ? this.data.startTime
           : this.data.startTimeThreshold,
       })
-      this.triggerEvent('starttimechange', this.data.startTime)
     },
     endTime() {
       this.setData({
@@ -33,7 +29,6 @@ Component({
           ? this.data.endTime
           : this.data.endTimeThreshold,
       })
-      this.triggerEvent('endtimechange', this.data.endTime)
     },
   },
 

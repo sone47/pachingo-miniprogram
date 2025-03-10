@@ -36,14 +36,6 @@ Page({
     })
   },
 
-  handleStartTimeChange(e: { detail: string }) {
-    this.setData({ startTime: e.detail })
-  },
-
-  handleEndTimeChange(e: { detail: string }) {
-    this.setData({ endTime: e.detail })
-  },
-
   async handleSave() {
     await addDesire({
       name: this.data.name,
