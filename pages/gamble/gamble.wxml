@@ -24,11 +24,18 @@
           </card>
         </view>
         <view wx:else class="content">
-          <swiper class="swiper" indicator-dots="{{ true }}" indicator-color="#E8E8E8" indicator-active-color="#FBD65B">
+          <swiper
+            class="swiper"
+            indicator-dots="{{ true }}"
+            indicator-color="#E8E8E8"
+            indicator-active-color="#FBD65B"
+            current="{{ swiperCurrent }}"
+            bind:change="handleSwiperChange"
+          >
             <swiper-item wx:for="{{ lottoryResultList }}" wx:key="this">
               <view class="content">
-                <card wx:for="{{ item }}" wx:key="id" wx:for-item="desireItem">
-                  <desire-item data="{{ desireItem }}"></desire-item>
+                <card wx:for="{{ item }}" wx:key="id" wx:for-item="lotteryItem">
+                  <desire-item data="{{ lotteryItem.desire }}"></desire-item>
                 </card>
               </view>
             </swiper-item>
@@ -44,4 +51,6 @@
       </block>
     </view>
   </view>
+
+  <t-message id="t-message" />
 </layout>

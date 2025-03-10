@@ -132,7 +132,7 @@ class Request {
     }
 
     // 处理HTTP错误
-    let message = ''
+    let message = data.message
     switch (statusCode) {
       case 401:
         message = data.message || '未授权，请重新登录'
@@ -151,7 +151,7 @@ class Request {
         message = '服务器错误'
         break
       default:
-        message = `请求失败(${statusCode})`
+        message = data.message || `请求失败(${statusCode})`
     }
 
     const error = new Error(message)

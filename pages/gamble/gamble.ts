@@ -1,13 +1,17 @@
 import { uniqBy, groupBy, values, map } from 'lodash'
-
+import { drawLottery, getTodayLottery } from '@/api/lottery'
 import { DEFAULT_GAMBLIMH_CHIP_COUNT, EventStatusEnum } from '@/constant/index'
+import { Desire, Lottery } from '@/api/types'
+import { Message } from 'tdesign-miniprogram'
 
 Page({
   data: {
     isTodo: false,
     gamblingChipCount: DEFAULT_GAMBLIMH_CHIP_COUNT,
-    lottoryResultList: [], // DesireItem[][]
-    todoList: [],
+    lottoryResultList: [] as Lottery[][],
+    todoList: [] as Desire[],
+
+    swiperCurrent: 0,
   },
 
   onShow() {
@@ -24,9 +28,9 @@ Page({
     const lotteryResult = await this.fetchTodayLotteryResult()
     this.setData({
       isTodo: lotteryResult.some(item => item.isSelected),
-      gamblingChipCount: DEFAULT_GAMBLIMH_CHIP_COUNT - uniqBy(lotteryResult, 'lotteryId').length,
-      todoList: lotteryResult.filter(item => item.isSelected).map(item => item.event),
-      lottoryResultList: values(groupBy(lotteryResult, 'lotteryId')).map(item => map(item, 'event')),
+      gamblingChipCount: DEFAULT_GAMBLIMH_CHIP_COUNT - uniqBy(lotteryResult, 'attempt').length,
+      todoList: lotteryResult.filter(item => item.isSelected).map(item => item.desire),
+      lottoryResultList: values(groupBy(lotteryResult, 'attempt')),
     })
   },
 
@@ -37,101 +41,7 @@ Page({
   },
 
   async fetchTodayLotteryResult() {
-    return [
-      {
-        id: 1,
-        lotteryId: '2025012701',
-        eventId: 10,
-        isSelected: false,
-        event: {
-          id: 1,
-          name: '吃饭',
-          description: '店子在福田~再不吃可能就过季了没得吃了！！警惕警惕警惕~~~~~',
-          priority: 4,
-          startTime: '2024-06-07',
-          endTime: '2024-07-08',
-          createTime: '2024-12-12',
-        },
-      },
-      {
-        id: 2,
-        lotteryId: '2025012701',
-        eventId: 11,
-        isSelected: false,
-        event: {
-          id: 2,
-          name: '打豆豆',
-          description: '店子在福田~再不吃可能就过季了没得吃了！！警惕警惕警惕~~~~~',
-          priority: 4,
-          startTime: '2024-06-07',
-          endTime: '2024-07-08',
-          createTime: '2024-12-12',
-        },
-      },
-      {
-        id: 3,
-        lotteryId: '2025012701',
-        eventId: 12,
-        isSelected: false,
-        event: {
-          id: 3,
-          name: '睡觉',
-          description: '店子在福田~再不吃可能就过季了没得吃了！！警惕警惕警惕~~~~~',
-          priority: 4,
-          startTime: '2024-06-07',
-          endTime: '2024-07-08',
-          createTime: '2024-12-12',
-        },
-      },
-      {
-        id: 4,
-        lotteryId: '2025012702',
-        eventId: 10,
-        isSelected: false,
-        event: {
-          id: 4,
-          name: '开飞机',
-          description: '店子在福田~再不吃可能就过季了没得吃了！！警惕警惕警惕~~~~~',
-          priority: 3,
-          startTime: '2024-06-07',
-          endTime: '2024-07-08',
-          status: 1,
-          createTime: '2024-12-12',
-        },
-      },
-      {
-        id: 5,
-        lotteryId: '2025012702',
-        eventId: 10,
-        isSelected: false,
-        event: {
-          id: 5,
-          name: '看电影',
-          description: '店子在福田~再不吃可能就过季了没得吃了！！警惕警惕警惕~~~~~',
-          priority: 4,
-          startTime: '2024-06-07',
-          endTime: '2024-07-08',
-          status: 1,
-          createTime: '2024-12-12',
-        },
-      },
-      {
-        id: 6,
-        lotteryId: '2025012702',
-        eventId: 10,
-        isSelected: false,
-        event: {
-          id: 6,
-          name: '做PaChinGo',
-          description: '店子在福田~再不吃可能就过季了没得吃了！！警惕警惕警惕~~~~~',
-          priority: 5,
-          startTime: '2024-06-07',
-          endTime: '2024-07-08',
-          status: 2,
-          createTime: '2024-12-12',
-        },
-      },
-    ]
+    return getTodayLottery()
   },
 
   async handlePrint() {
@@ -142,42 +52,31 @@ Page({
   async handlePlay() {
     const lotteryResult = await this.generateLotteryResult()
     this.setData({
-      lottoryResultList: [...this.data.lottoryResultList, lotteryResult.lotteryResult],
-      gamblingChipCount: lotteryResult.chipCount,
+      lottoryResultList: [...this.data.lottoryResultList, lotteryResult],
+      gamblingChipCount: DEFAULT_GAMBLIMH_CHIP_COUNT - this.data.lottoryResultList.length - 1,
+      swiperCurrent: this.data.lottoryResultList.length,
     })
   },
 
   async generateLotteryResult() {
-    return {
-      lotteryResult: [
-        {
-          id: 1,
-          name: '吃柿子甜品',
-          description: '店子在福田~再不吃可能就过季了没得吃了！！警惕警惕警惕~~~~~',
-          priority: 4,
-          startTime: '2024-06-07',
-          endTime: '2024-07-08',
-          createTime: '2024-12-12',
-        },
-        {
-          id: 2,
-          name: '吃柿子甜品',
-          description: '店子在福田~再不吃可能就过季了没得吃了！！警惕警惕警惕~~~~~',
-          priority: 4,
-          endTime: '2024-07-08',
-          createTime: '2024-12-01',
-        },
-        {
-          id: 3,
-          name: '吃柿子甜品',
-          description: '店子在福田~再不吃可能就过季了没得吃了！！警惕警惕警惕~~~~~',
-          priority: 4,
-          endTime: '2024-07-08',
-          createTime: '2024-12-01',
-        },
-      ],
-      chipCount: this.data.gamblingChipCount - 1,
+    try {
+      const lotteryResult = await drawLottery()
+      return lotteryResult
+    } catch (error: any) {
+      Message.error({
+        context: this,
+        offset: ['20rpx', '32rpx'],
+        duration: 5000,
+        content: error.message || '抽取失败',
+      })
+      throw error
     }
+  },
+
+  handleSwiperChange(event: any) {
+    this.setData({
+      swiperCurrent: event.detail.current,
+    })
   },
 
   handleDesireComplete(event) {
