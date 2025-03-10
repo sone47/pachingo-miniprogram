@@ -1,7 +1,11 @@
+import { getCompletedDesireList } from '@/api/desire'
+import { formatDate } from '@/utils/date'
+import { Desire } from '@/api/types'
+
 Page({
   data: {
     date: Date.now(),
-    historyData: [],
+    historyData: [] as Desire[],
   },
 
   onShow() {
@@ -11,7 +15,7 @@ Page({
     this.setDate(Date.now())
   },
 
-  handleCalendarSelect(event) {
+  handleCalendarSelect(event: { detail: { value: number } }) {
     this.setDate(event.detail.value)
   },
 
@@ -20,36 +24,10 @@ Page({
     this.fetchHistory()
   },
 
-  fetchHistory() {
-    // TODO 获取历史数据
+  async fetchHistory() {
+    const historyData = await getCompletedDesireList(formatDate(this.data.date))
     this.setData({
-      historyData: [
-        {
-          id: 1,
-          name: '吃柿子甜品',
-          description: '店子在福田~再不吃可能就过季了没得吃了！！警惕警惕警惕~~~~~',
-          priority: 4,
-          startTime: '2024-06-07',
-          endTime: '2024-07-08',
-          createTime: '2024-12-12',
-        },
-        {
-          id: 2,
-          name: '吃柿子甜品',
-          description: '店子在福田~再不吃可能就过季了没得吃了！！警惕警惕警惕~~~~~',
-          priority: 4,
-          endTime: '2024-07-08',
-          createTime: '2024-12-01',
-        },
-        {
-          id: 3,
-          name: '吃柿子甜品',
-          description: '店子在福田~再不吃可能就过季了没得吃了！！警惕警惕警惕~~~~~',
-          priority: 4,
-          endTime: '2024-07-08',
-          createTime: '2024-12-01',
-        },
-      ],
+      historyData,
     })
   },
 })

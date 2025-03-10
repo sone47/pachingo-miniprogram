@@ -25,3 +25,7 @@ export async function completeDesire(id: number) {
 export async function rollbackDesire(id: number) {
   return request.put<number>(`/action/desire/${id}/cancel-complete`)
 }
+
+export async function getCompletedDesireList(date: string) {
+  return request.get<Desire[]>('/action/desire/completed', { date })
+}
